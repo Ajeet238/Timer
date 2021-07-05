@@ -23,9 +23,14 @@ function displaydate() {
 let starts;
 let initial;
 //let int =5
+ let flag = 1;
 function start() {
-
+    if(flag==1){
         starts =  setInterval(timer,1000);
+        flag=0;
+    }
+  
+        
 }
 
 let sec = 00;
@@ -46,7 +51,11 @@ function timer() {
 }
 // timer pause
 function stop() {
-    clearInterval(starts);
+    if(flag==0){
+        clearInterval(starts);
+        flag=1;
+    }
+   
 }
 
 // timer reset
@@ -54,8 +63,10 @@ function reset() {
     hr = 00;
     min = 00;
     sec = 00;
+    
     clearInterval(starts);
     document.getElementById("showTimer").innerHTML = `${hr}:${min}:${sec}`;
+    flag=1;
 }
 
 
