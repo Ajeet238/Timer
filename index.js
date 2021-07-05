@@ -27,8 +27,8 @@ let initial;
 function start() {
     if(flag==1){
         starts =  setInterval(timer,1000);
-        flag=0;
     }
+    flag =0;
   
         
 }
@@ -39,11 +39,11 @@ let hr = 00;
 function timer() {
 
     sec++;
-    if (sec == 59) {
-        num = 00;
+    if (sec == 60) {
+        sec = 00;
         min++;
     }
-    if (min == 59) {
+    if (min == 60) {
         min = 00;
         hr++;
     }
@@ -51,10 +51,10 @@ function timer() {
 }
 // timer pause
 function stop() {
-    if(flag==0){
+    
         clearInterval(starts);
         flag=1;
-    }
+    
    
 }
 
@@ -68,11 +68,3 @@ function reset() {
     document.getElementById("showTimer").innerHTML = `${hr}:${min}:${sec}`;
     flag=1;
 }
-
-
-
-
-
-
-
-
